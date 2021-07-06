@@ -3,26 +3,35 @@ version: '3.8'
 services:
   node_server:
     build: .
-    ports:
-      - "7788:7788"
-    networks:
-      - example-net
+    # ports:
+    #   - 7788
+    # networks:
+    #   - example-net
   
   nginx:
     image: nginx
     container_name: reverse_proxy_nginx
     volumes:
-      # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/default.conf:/etc/nginx/nginx.conf
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     hostname: nginx
     ports:
       - 80:80
     depends_on:
       - node_server
-    networks:
-      - example-net
+    # networks:
+    #   - example-net
 
-networks:
-  example-net:
-    external: true
+  nginx-webserver:
+    image: nginx
+    # ports:
+    #   - 80
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+    # networks:
+    #   - example-net
+
+# networks:
+#   example-net:
+#     external: true

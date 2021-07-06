@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Today 555</title>
+    <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=0.8, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <script src="https://unpkg.com/bowser@2.4.0/es5.js"></script>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+</header>
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        background: -webkit-linear-gradient(-45deg,
+                #ee7752,
+                #e73c7e,
+                #23a6d5,
+                #23d5ab);
+        background: -o-linear-gradient(-45deg,
+                #ee7752,
+                #e73c7e,
+                #23a6d5,
+                #23d5ab);
+        background: -moz-linear-gradient(-45deg,
+                #ee7752,
+                #e73c7e,
+                #23a6d5,
+                #23d5ab);
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite;
+
+        display: flex;
+        flex-direction: column;
+        font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+    }
+
+    header {
+        min-height: 50px;
+        /* background: lightcyan; */
+    }
+
+    footer {
+        min-height: 50px;
+        margin-top: auto;
+        text-align: center;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .talkbubble {
+        font-size: 5em;
+        font: 400 55px/75px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+        /* change icon size */
+        display: block;
+        position: relative;
+        width: 7em;
+        height: 7em;
+        background-color: #fff;
+        margin: 2em auto;
+        border-radius: 1.3em;
+        /* border: 1px solid #bdbdbd; */
+        /* box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd; */
+        box-shadow: 0 0 30px 0 #494949;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: rotate(0deg) skewY(0deg);
+        -webkit-transform-origin: 50% 10%;
+        transform-origin: 50% 10%;
+        font-weight: bold;
+        font-style: normal;
+        text-align: center;
+        margin: 0;
+    }
+
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .monthyear {
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        bottom: 1.2em;
+
+        font-size: 0.8em;
+        color: #ffffff;
+        background-color: #fa565a;
+        line-height: normal;
+        padding-bottom: 5px;
+    }
+
+    .day {
+        margin: 0;
+        width: 100%;
+        font-size: 3.7em;
+        letter-spacing: -0.05em;
+        padding-top: 0.65em;
+        color: #2f2f2f;
+    }
+
+    .time {
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        bottom: -0.4em;
+        font-size: 0.6em;
+        color: #2f2f2f;
+    }
+
+    .today {
+        position: absolute;
+        top: 0;
+        padding-top: 0.1em 0;
+        color: #fa565a;
+        margin: 0;
+        /* background-color: #3292ff;
+        box-shadow: 0 2px 0 #3292ff; */
+        display: block;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <header></header>
+    <article>
+        <div class="center">
+            <div class="talkbubble">
+                <p id="monthyear" class="monthyear"></p>
+                <p id="day" class="day"></p>
+                <p id="year" class="year"></p>
+                <p id="today" class="today"></p>
+                <p id="time" class="time"></p>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <div id="log"></div>
+    </footer>
+
+    <script>
+        Date.prototype.monthName = function () {
+            const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+            return monthsOfYear[this.getMonth()];
+        }
+
+        // As with the previous block, this block states the days of the week so the script 
+        // can match the named days of the week to corresponding numerical values.
+
+        Date.prototype.dayName = function () {
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                'Friday', 'Saturday'];
+            return daysOfWeek[this.getDay()];
+        }
+
+        Date.prototype.monthNameTH = function () {
+            const monthsOfYear = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+                'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+            return monthsOfYear[this.getMonth()];
+        }
+
+        // As with the previous block, this block states the days of the week so the script 
+        // can match the named days of the week to corresponding numerical values.
+
+        Date.prototype.dayNameTH = function () {
+            const daysOfWeek = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี',
+                'วันศุกร์', 'วันเสาร์'];
+            return daysOfWeek[this.getDay()];
+        }
+
+        function realtimeClock() {
+            const now = new Date(),
+                today = now.dayName(),
+                todayTH = now.dayNameTH(),
+                year = now.getFullYear(),
+                yearTH = now.getFullYear()+543,
+                month = now.monthName(),
+                monthTH = now.monthNameTH(),
+                day = now.getDate(),
+                secs = ('0' + now.getSeconds()).slice(-2),
+                mins = ('0' + now.getMinutes()).slice(-2),
+                hours = now.getHours(),
+                container = document.querySelector('.clock');
+
+            document.getElementById("today").innerHTML = `${today}`;
+            document.getElementById("day").innerHTML = `${day}`;
+            // document.getElementById("month").innerHTML = `${month}`;
+            // document.getElementById("year").innerHTML = `${year}`;
+            document.getElementById("time").innerHTML = `${hours}:${mins}:${secs}`;
+            document.getElementById("monthyear").innerHTML = `${month} ${year}`;
+
+            requestAnimationFrame(realtimeClock);
+        };
+
+        requestAnimationFrame(realtimeClock);
+    </script>
+
+    <script>
+        var result = bowser.getParser(window.navigator.userAgent);
+        document.getElementById("log").innerHTML =
+            "Browser : " + result.parsedResult.browser.name +
+            " (Version " + result.parsedResult.browser.version + ") "+
+            " on " + result.parsedResult.os.name;
+    </script>
+</body>
+
+</html>

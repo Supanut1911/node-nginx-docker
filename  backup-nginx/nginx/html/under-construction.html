@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Under Construction</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+</head>
+
+<style>
+	:root {
+		--main-space: 20px;
+		--main-textColor: #6E6E6E;
+		--contentIconError-size: 120px;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-size: 16px;
+		background: #ffffff;
+		background: linear-gradient(145deg, #ffffff 0%, #ffffff 50%, #f9f9f9 50%, #f9f9f9 100%);
+
+
+
+
+	}
+
+	.mainContainer {
+		font-family: 'Kanit', sans-serif;
+		width: 100vw;
+		height: 100vh;
+		min-height: var(--contentIconError-size);
+		min-width: var(--contentIconError-size);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: var(--main-textColor);
+	}
+
+	.contentError {
+		display: flex;
+		padding: var(--main-space);
+	}
+
+	.contentError>* {}
+
+	.contentError .contentError-icon {
+		padding: 10px;
+		border-radius: 100%;
+		height: var(--contentIconError-size);
+		width: var(--contentIconError-size);
+		min-height: var(--contentIconError-size);
+		min-width: var(--contentIconError-size);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	.contentError .contentError-icon::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		border: 1px dashed var(--main-textColor);
+		border-radius: 100%;
+		position: absolute;
+		animation: rotating 15s linear infinite;
+	}
+
+	.contentError .contentError-icon .icon {
+		height: 65%;
+	}
+
+	.contentError .contentError-icon svg {
+		height: 100%;
+		position: relative;
+		left: 5px;
+		animation: colorFade 4s linear infinite;
+	}
+
+	.contentError .contentError-icon svg path {
+		fill: var(--main-textColor);
+	}
+
+	.contentError .contentError-textDetail {
+		line-height: normal;
+		padding-left: var(--main-space);
+	}
+
+	.contentError .contentError-textDetail .errorCode {
+		font-size: 4rem;
+		line-height: 4.5rem;
+		text-shadow: 3px 2px 1px rgb(0 0 0 / 30%);
+	}
+
+	.contentError .contentError-textDetail .errorTitle {
+		font-size: 1.5rem;
+		line-height: normal;
+	}
+
+	.contentError .contentError-textDetail .errorDescriptions {
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: normal;
+		word-break: break-all;
+		word-break: break-word;
+	}
+
+	.contentError .contentError-textDetail .errorDescriptions p {
+		margin: 0;
+		word-break: break-all;
+		word-break: break-word;
+	}
+
+	@keyframes rotating {
+		from {
+			-ms-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+
+		to {
+			-ms-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes colorFade {
+		0% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: .7;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+</style>
+
+<body>
+	<div class="mainContainer">
+		<div class="contentError">
+			<div class="contentError-icon">
+				<div class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="85.313" height="105" viewBox="0 0 85.313 105">
+						<path id="coffee"
+							d="M143.073,28.813a3.689,3.689,0,0,0,3.691-3.691V3.691a3.691,3.691,0,0,0-7.383,0V25.122A3.689,3.689,0,0,0,143.073,28.813ZM205.93,43.579h-12.3a7.378,7.378,0,0,0-7.383-7.383H135.383A7.378,7.378,0,0,0,128,43.579v25.43a6.573,6.573,0,0,0,.072,1.015c-.051.718-.072,1.436-.072,2.164a32.817,32.817,0,0,0,65.246,5.024H205.93a7.378,7.378,0,0,0,7.383-7.383V50.962A7.378,7.378,0,0,0,205.93,43.579Zm-19.687,26.25h-.113c.072.779.113,1.559.113,2.358a25.43,25.43,0,0,1-50.859,0c0-.8.041-1.579.113-2.358h-.113V43.579h50.859Zm19.688-.82H194.445V50.962H205.93Zm-28.2-40.2a3.689,3.689,0,0,0,3.691-3.691V3.691a3.691,3.691,0,0,0-7.383,0V25.122A3.689,3.689,0,0,0,177.731,28.813Zm-17.432,0a3.689,3.689,0,0,0,3.691-3.691V3.691a3.691,3.691,0,0,0-7.383,0V25.122A3.689,3.689,0,0,0,160.3,28.813Z"
+							transform="translate(-128)" fill="#6e6e6e" />
+					</svg>
+
+				</div>
+			</div>
+			<div class="contentError-textDetail">
+				<div class="errorCode --text">Sorry</div>
+				<div class="errorTitle">System Under Construction !</div>
+				<div class="errorDescriptions">
+					<p>We are doing some work on the system and will be back soon.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
